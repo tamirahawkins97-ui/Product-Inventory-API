@@ -4,7 +4,7 @@ const app = express();
 require('dotenv').config();
 const PORT = process.env.PORT || 6797
 //INSTALL THE NPM LOG DEPENDANCY MORGAN TO TRACK THE STATUS OF YOUR DATA ACROSS THE APPLICATION AND DB.
-//PRODUCT ROUTES 
+const productRoutes = require('./routes/productRoutes')
 
 const connectDB = require('./db/connection');
 
@@ -13,13 +13,14 @@ const connectDB = require('./db/connection');
 connectDB();
 
 //MIDDLEWARE 
-app.use(express.urlencoded())
+app.use(express.urlencoded({extended: true}))
 app.use(express.json());
 
 //Mount Router Here 
+app.use('/api/products', productRoutes)
 
 //LANDING ROUTE OR INITIAL PAGE 
-app.get('/api/products', (req,res) =>{
+app.post('/api/products', (req,res) =>{
     res.send("Welcome to the Products Page!")
 })
 

@@ -6,10 +6,11 @@ const productSchema = mongoose.Schema({
     description: {type: String, required:true},
     price: {type: Number, required:true, min: [0.01, 'Must be greater than 0.'], max: [100.00, 'Cannot be greater than 100.']},
     category: {type: String, required:true},
-    inStock: {type: true, },
+    inStock: {type: Boolean },
     tags: {type:[String],},
-    createdAt: {type: Date.now}
+},
+   { timestamps: true }
 
-});
+);
 
-module.exports = mongoose.Model('Product', productSchema);
+module.exports = mongoose.model('Product', productSchema);
