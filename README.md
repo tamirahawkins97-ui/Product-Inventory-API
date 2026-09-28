@@ -1,4 +1,4 @@
-## Product Inventory API
+# Product Inventory API
 ## What This Project Is
 A backend REST API built with Node.js and Express that lets users manage a product catalog in MongoDB. It handles full CRUD operations, validates data rules, and supports filtering, sorting, and pagination.
 
