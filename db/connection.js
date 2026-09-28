@@ -8,7 +8,7 @@ const connectDB = () =>{
     const db = mongoose.connection;
 
     db.on('error', (error) => console.log(error.message + "MongoDB is not running."));
-    db.on('connected', () => console.log(`Successfully connected to MongoDB! Database: ${dbName}`))
+    db.on('connected', () => console.log(`Successfully connected to MongoDB! Database: ${db.name}`))
     db.on('disconnected', ()=> console.log('Unable to connect to MongoDB. Please try again.'))
 };
 
